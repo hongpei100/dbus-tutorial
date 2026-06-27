@@ -1,0 +1,47 @@
+description: >
+    A simple sensor value interface for demo purposes.
+
+properties:
+    - name: Value
+      type: double
+      description: >
+          The current sensor reading.
+
+    - name: Unit
+      type: string
+      description: >
+          Unit of measurement (e.g. DegreesC, RPM).
+
+    - name: MaxValue
+      type: double
+      description: >
+          Upper threshold for alerting.
+
+    - name: MinValue
+      type: double
+      description: >
+          Lower threshold for alerting.
+
+methods:
+    - name: SetThresholds
+      description: >
+          Set upper and lower alert thresholds.
+      parameters:
+          - name: High
+            type: double
+            description: Upper threshold.
+          - name: Low
+            type: double
+            description: Lower threshold.
+
+signals:
+    - name: ThresholdAlert
+      description: >
+          Emitted when the sensor value crosses a threshold.
+      properties:
+          - name: SensorValue
+            type: double
+            description: The value that triggered the alert.
+          - name: Direction
+            type: string
+            description: Either "High" or "Low".
